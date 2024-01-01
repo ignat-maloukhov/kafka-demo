@@ -1,10 +1,13 @@
 https://www.youtube.com/watch?v=pSKY3-K9_qc
+https://reflectoring.io/spring-boot-gradle-multi-module/
+https://spring.io/guides/gs/multi-module/
 https://spring.io/guides/topicals/spring-boot-docker/
+https://www.docker.com/blog/kickstart-your-spring-boot-application-development/
 
 Dockerizing:
 1. build jar file
 ```
-./gradlew kafka-broker:build
+./gradlew clean kafka-broker:build
 ```
 2. create image
 ```

@@ -8,3 +8,18 @@ services:
     ports:
       - 9090:8090
     container_name: kafka-broker
+  kafka-producer:
+    build:
+      dockerfile: ./kafka-producer/Dockerfile
+    image: kafka-producer
+    ports:
+      - 9091:8091
+    container_name: kafka-producer
+  kafka-consumer:
+    build:
+      dockerfile: ./kafka-consumer/Dockerfile
+    image: kafka-consumer
+    ports:
+      - 9092:8092
+    container_name: kafka-consumer
+
