@@ -1,0 +1,10 @@
+version: "3.4"
+
+services:
+  kafka-broker:
+    build:
+      dockerfile: ./kafka-broker/Dockerfile
+    image: kafka-broker
+    ports:
+      - 9090:8090
+    container_name: kafka-broker
