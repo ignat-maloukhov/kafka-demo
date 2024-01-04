@@ -14,8 +14,9 @@ https://dev.to/justahmed99/connecting-spring-boot-microservices-with-kafka-3hc7
 https://www.youtube.com/watch?v=KQDTtvZMS9c
 https://www.youtube.com/watch?v=SqVfCyfCJqw
 
+try: https://www.baeldung.com/ops/kafka-docker-setup
 try: https://howtodoinjava.com/kafka/spring-boot-with-kafka/
-
+try: https://howtodoinjava.com/spring-boot/apache-kafka-using-spring-boot/
 
 Dockerizing:
 1. build single jar files
