@@ -1,0 +1,13 @@
+server:
+  port: 8099
+
+spring:
+  kafka:
+    #consumer:
+    #group-id: chuck-norris-group
+    #auto-offset-reset: earliest
+    #bootstrap-servers: localhost:9092
+
+topic:
+  topic-name: chuck-norris-topic
+  messages-per-request: 10

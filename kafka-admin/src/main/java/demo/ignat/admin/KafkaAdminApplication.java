@@ -1,13 +1,13 @@
-package demo.ignat.broker;
+package demo.ignat.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KafkaBrokerApplication {
+public class KafkaAdminApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(KafkaBrokerApplication.class, args);
+		SpringApplication.run(KafkaAdminApplication.class, args);
 	}
 
 }

@@ -1,0 +1,22 @@
+server:
+  port: 8090
+
+spring:
+  kafka:
+    producer:
+      #bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
+    consumer:
+      group-id: chuck-norris
+      auto-offset-reset: earliest
+    # change this property if you are using your own
+    # Kafka cluster or your Docker IP is different
+    bootstrap-servers: localhost:9092
+
+topic:
+  topic-name: chuck-norris-topic
+  messages-per-request: 10
+

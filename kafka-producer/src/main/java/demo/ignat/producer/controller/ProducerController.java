@@ -1,4 +1,4 @@
-package demo.ignat.broker.controller;
+package demo.ignat.producer.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
 @RequestMapping("/api/v1")
-public class BrokerController {
+public class ProducerController {
 
     @GetMapping("/hello")
     public ResponseEntity<String> hello() {
-        return ResponseEntity.ok("Hello from kafka-broker");
+        return ResponseEntity.ok("Hello from kafka-producer");
 
     }
 }

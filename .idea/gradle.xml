@@ -9,7 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/kafka-broker" />
+            <option value="$PROJECT_DIR$/kafka-admin" />
             <option value="$PROJECT_DIR$/kafka-consumer" />
             <option value="$PROJECT_DIR$/kafka-producer" />
           </set>

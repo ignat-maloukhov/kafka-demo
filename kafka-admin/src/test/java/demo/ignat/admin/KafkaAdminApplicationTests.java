@@ -1,10 +1,10 @@
-package demo.ignat.broker;
+package demo.ignat.admin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KafkaBrokerApplicationTests {
+class KafkaAdminApplicationTests {
 
 	@Test
 	void contextLoads() {
