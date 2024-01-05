@@ -3,7 +3,7 @@ Hi everyone and me in the future :wave: this demo project is grokking [Apache Ka
 ### Action plan
 **Step one.** Set up [Gradle](https://gradle.org/) multi-module project according to the instructions in this [article](https://reflectoring.io/spring-boot-gradle-multi-module/) and [documentation](https://docs.gradle.org/current/userguide/multi_project_builds.html).  
 **Step two.** Run [Zookeeper](https://zookeeper.apache.org/) and [Apache Kafka](https://kafka.apache.org/) in [Docker](https://www.docker.com/) according to the instructions in this [article](https://www.baeldung.com/ops/kafka-docker-setup).  
-**Step three.** Create and configure Kafka topic using Spring KafkaAdmin according to the instructions in this [article](https://www.baeldung.com/kafka-topic-creation) and [this one](https://howtodoinjava.com/kafka/spring-kafka-admin-create-new-topics/), at the same time, you need to take into account the specifics of the ports in the container which are described in this [answer](https://stackoverflow.com/questions/72113718/how-to-docker-compose-spring-boot-with-kafka).  
+**Step three.** Create and configure Kafka topic using Spring KafkaAdmin according to the instructions in this [article](https://www.baeldung.com/kafka-topic-creation) and [this one](https://howtodoinjava.com/kafka/spring-kafka-admin-create-new-topics/), pay attention how to use ports into the containers which are described in this [answer](https://stackoverflow.com/questions/72113718/how-to-docker-compose-spring-boot-with-kafka).  
 **Step four.** Code producer and consumer according to the instructions in these articles:  
 * [Intro to Apache Kafka with Spring](https://www.baeldung.com/spring-kafka);  
 * [Spring Boot and Kafka – Practical Example](https://thepracticaldeveloper.com/spring-boot-kafka-config/);  
@@ -11,13 +11,17 @@ Hi everyone and me in the future :wave: this demo project is grokking [Apache Ka
 * [Using Kafka with Spring Boot](https://reflectoring.io/spring-boot-kafka/).  
 
 **Step five.** Test using Testcontainers according to the instructions in this [article](https://www.baeldung.com/spring-boot-kafka-testing).  
+**Step six.** Run run run :rocket:
 </br>
+</br>
+
 Youtube tutorials and presentations:
 * [Владимир Богдановский. Про Kafka (основы)](https://youtu.be/-AZOi3kP9Js)  
 * [Amigoscode. Kafka Tutorial - Spring Boot Microservices](https://youtu.be/SqVfCyfCJqw)  
 * [Bouali Ali. Apache Kafka Tutorial with Spring Boot Reactive & WebFlux | Kafka Tutorial](https://youtu.be/KQDTtvZMS9c)  
 * [Devtiro. Stream Big Data: How to use Kafka with Spring Boot](https://youtu.be/QngHCFFsa00)  
-
+</br>
+</br>
 
 Dockerizing:
 1. build single jar files
