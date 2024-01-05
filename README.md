@@ -7,7 +7,7 @@ Hi everyone and me in the future :wave: this demo project is grokking [Apache Ka
 **Step four.** Code producer and consumer according to the instructions in these articles:
 * [Intro to Apache Kafka with Spring](https://www.baeldung.com/spring-kafka);
 * [Spring Boot and Kafka – Practical Example](https://thepracticaldeveloper.com/spring-boot-kafka-config/);
-* [Apache Kafka using Spring Boot](https://howtodoinjava.com/spring-boot/apache-kafka-using-spring-boot/).</br>
+* [Apache Kafka using Spring Boot](https://howtodoinjava.com/spring-boot/apache-kafka-using-spring-boot/).</br></br>
 **Step five.** Test using Testcontainers according to the instructions in this [article](https://www.baeldung.com/spring-boot-kafka-testing).</br>
 </br>
 Youtube tutorials and presentations:
