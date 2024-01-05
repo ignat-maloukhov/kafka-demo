@@ -18,7 +18,7 @@ import java.util.Map;
 @Configuration
 public class KafkaConsumerConfig {
 
-    private String bootstrapAddress = "localhost:9092";
+    private String bootstrapAddress = "kafka:9092";
     private String groupId = "chuck-norris";
 
 

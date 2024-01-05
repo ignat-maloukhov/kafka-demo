@@ -27,7 +27,7 @@ public class KafkaProducerConfig {
     private String topicName = "chuck-norris-topic";
 
     //@Value(value = "${spring.kafka.producer.bootstrap-servers}")
-    private String bootstrapAddress = "localhost:9092";
+    private String bootstrapAddress = "kafka:9092";
 
 //    @Value(value = "${spring.kafka.key-serializer}")
 //    private String keySerializer;

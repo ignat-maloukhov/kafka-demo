@@ -21,7 +21,7 @@ public class KafkaProducerApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         var topic = "chuck-norris-topic";
         for (int i = 0; i < 10; i++) {
-            var message = new ChuckMessage("hi " + i, i);
+            var message = new ChuckMessage("ЧААААААААААААААААККККККККК " + i, i);
             producer.send(topic, message);
         }
     }
