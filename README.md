@@ -3,7 +3,7 @@ Hi everyone and me in the future :wave: this demo project is grokking [Apache Ka
 ### Action plan
 **Step one.** Set up [Gradle](https://gradle.org/) multi-module project according to the instructions in this [article](https://reflectoring.io/spring-boot-gradle-multi-module/) and [documentation](https://docs.gradle.org/current/userguide/multi_project_builds.html).  
 **Step two.** Run [Zookeeper](https://zookeeper.apache.org/) and [Apache Kafka](https://kafka.apache.org/) in [Docker](https://www.docker.com/) according to the instructions in this [article](https://www.baeldung.com/ops/kafka-docker-setup).  
-**Step three.** Create and configure Kafka topic using Spring KafkaAdmin according to the instructions in this [article](https://www.baeldung.com/kafka-topic-creation) and [this one](https://howtodoinjava.com/kafka/spring-kafka-admin-create-new-topics/), pay attention how to use ports into the containers which are described in this [answer](https://stackoverflow.com/questions/72113718/how-to-docker-compose-spring-boot-with-kafka).  
+**Step three.** Create and configure Kafka topic using Spring KafkaAdmin according to the chapter [4.1.2. Configuring Topics](https://docs.spring.io/spring-kafka/docs/latest-ga/reference/html/#configuring-topics) of the documentation, and this [article](https://howtodoinjava.com/kafka/spring-kafka-admin-create-new-topics/). For multi-node Kafka cluster bootstrap-server config explained in this [article](https://www.baeldung.com/java-kafka-bootstrap-server). Pay attention how to use ports into the containers which are described in this [answer](https://stackoverflow.com/questions/72113718/how-to-docker-compose-spring-boot-with-kafka).  
 **Step four.** Code producer and consumer according to the instructions in these articles:  
 * [Intro to Apache Kafka with Spring](https://www.baeldung.com/spring-kafka);  
 * [Spring Boot and Kafka – Practical Example](https://thepracticaldeveloper.com/spring-boot-kafka-config/);  
@@ -30,7 +30,7 @@ Dockerizing:
 ./gradlew clean kafka-prosucer:build
 ./gradlew clean kafka-consumer:build
 ```
-or build all services 
+or build all services using one command
 ```
 ./gradlew clean build
 ```
@@ -51,7 +51,14 @@ or run all containers using Docker-compose
 ```
 docker-compose up -d
 ```
+
+4. check port connection
+```
+tnc localhost -p 22181
+```
 4. stop servers
 ```
 docker-compose down
 ```
+
+try https://www.confluent.io/blog/kafka-listeners-explained/
