@@ -22,7 +22,7 @@ public class KafkaTopicBuilder {
     public NewTopic defaultTopic() {
         return TopicBuilder.name(topicName)
                 .partitions(10)
-                .replicas(3)
+                .replicas(1)
                 .compact()
                 .build();
     }
