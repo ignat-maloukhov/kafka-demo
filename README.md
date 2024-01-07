@@ -62,3 +62,7 @@ docker-compose down
 ```
 
 try https://www.confluent.io/blog/kafka-listeners-explained/
+try https://stackoverflow.com/questions/66590997/kafka-server-issue-in-docker
+try https://habr.com/ru/articles/529222/
+try https://stackoverflow.com/questions/61504171/spring-boot-app-refuses-to-connect-to-the-kafka-brokers
+https://docs.docker.com/compose/compose-file/compose-file-v3/
