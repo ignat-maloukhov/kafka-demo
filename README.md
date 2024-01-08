@@ -22,6 +22,11 @@ Youtube tutorials and presentations:
 * [Devtiro. Stream Big Data: How to use Kafka with Spring Boot](https://youtu.be/QngHCFFsa00)  
 </br>
 </br>
+Offtopic
+* [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)  
+* [30 команд Git, необходимых для освоения интерфейса командной строки Git](https://habr.com/ru/companies/ruvds/articles/599929/)  
+* 
+
 
 Dockerizing:
 1. build single jar files
@@ -43,18 +48,13 @@ docker build --build-arg JAR_FILE=kafka-consumer/build/libs/*.jar -f kafka-consu
 ```
 3. run single container on given port
 ```
-docker run -p 9099:8099 kafka-admin
+docker run -p 8080:8080 kafka-admin
 docker run -p 9090:8090 kafka-producer
 docker run -p 9091:8091 kafka-consumer
 ```
 or run all containers using Docker-compose
 ```
 docker-compose up -d
-```
-
-4. check port connection
-```
-tnc localhost -p 22181
 ```
 4. stop servers
 ```
@@ -65,4 +65,5 @@ try https://www.confluent.io/blog/kafka-listeners-explained/
 try https://stackoverflow.com/questions/66590997/kafka-server-issue-in-docker
 try https://habr.com/ru/articles/529222/
 try https://stackoverflow.com/questions/61504171/spring-boot-app-refuses-to-connect-to-the-kafka-brokers
-https://docs.docker.com/compose/compose-file/compose-file-v3/
+try https://docs.docker.com/compose/compose-file/compose-file-v3/
+try https://www.baeldung.com/kafka-docker-connection
