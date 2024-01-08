@@ -1,10 +1,2 @@
 server:
   port: 8080
-
-spring:
-  kafka:
-    bootstrap-servers: kafka:9092
-
-topic:
-  default-topic-name: chuck-norris-topic
-  messages-per-request: 10

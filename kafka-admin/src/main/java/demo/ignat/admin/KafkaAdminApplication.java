@@ -1,6 +1,6 @@
 package demo.ignat.admin;
 
-import demo.ignat.admin.onstartup.OnStartup;
+import demo.ignat.admin.infrastructure.onstartup.OnStartup;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

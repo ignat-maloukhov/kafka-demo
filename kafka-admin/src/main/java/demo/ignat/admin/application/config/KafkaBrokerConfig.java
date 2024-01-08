@@ -1,35 +1,38 @@
 package demo.ignat.admin.application.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClientConfig;
-import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.kafka.config.TopicBuilder;
+import org.springframework.kafka.core.KafkaAdmin;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@PropertySource("classpath:application.yml")
-public class KafkaAdmin {
+@PropertySource("classpath:kafka.properties")
+@Slf4j
+public class KafkaBrokerConfig {
 
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
 
-
+    /**
+     * Creates KafkaAdmin using given parameters: bootstrapAddress from kafka.properties.
+     *
+     * @return instance of KafkaAdmin.
+     */
     @Bean
-    public org.springframework.kafka.core.KafkaAdmin init() {
-        System.out.println("bootstrapAddress="+bootstrapAddress);
+    public KafkaAdmin init() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        org.springframework.kafka.core.KafkaAdmin admin = new org.springframework.kafka.core.KafkaAdmin(configs);
-        System.out.println("СВОЙСТВА");
-        System.out.println(admin.getConfigurationProperties());
+        KafkaAdmin admin = new org.springframework.kafka.core.KafkaAdmin(configs);
+
+        log.info("KafkaAdmin started");
+
         return admin;
     }
-
-
 
 }
