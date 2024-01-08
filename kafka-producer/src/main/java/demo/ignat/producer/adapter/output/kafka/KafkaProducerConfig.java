@@ -22,8 +22,8 @@ import java.util.Map;
 @Slf4j
 public class KafkaProducerConfig {
 
-//    @Value(value = "${spring.kafka.bootstrap-servers}")
-//    private String bootstrapAddress;
+    @Value(value = "${spring.kafka.bootstrap-servers}")
+    private String bootstrapAddress;
 
     @Bean
     public ProducerFactory<Integer, ChuckMessageDto> producerFactory() {
@@ -32,10 +32,10 @@ public class KafkaProducerConfig {
 
     @Bean
     public Map<String, Object> producerConfigs() {
-        //System.out.println(bootstrapAddress);
+        System.out.println(bootstrapAddress);
 
         Map<String, Object> properties = new HashMap<>();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "kafka:9092");
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 

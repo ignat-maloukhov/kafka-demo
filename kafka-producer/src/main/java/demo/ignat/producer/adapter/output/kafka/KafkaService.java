@@ -19,7 +19,8 @@ public class KafkaService {
     //private String topicName = "chuck-norris-topic";
 
     public void sendKafkaMessage(String topicName, ChuckMessageDto dto) {
-        kafkaTemplate.send(topicName, Integer.valueOf(1), dto);
+        System.out.println("Из KafkaService=" + dto);
+        kafkaTemplate.send(topicName, dto);
     }
 
 
