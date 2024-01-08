@@ -25,7 +25,9 @@ Youtube tutorials and presentations:
 Offtopic
 * [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)  
 * [30 команд Git, необходимых для освоения интерфейса командной строки Git](https://habr.com/ru/companies/ruvds/articles/599929/)  
-* 
+* [A Guide to Datafaker](https://www.baeldung.com/java-datafaker)
+* [MapStruct 1.5.5.Final Reference Guide](https://mapstruct.org/documentation/stable/reference/html/)
+* [Mapping JPA Entities into DTOs in Spring Boot Using MapStruct](https://auth0.com/blog/how-to-automatically-map-jpa-entities-into-dtos-in-spring-boot-using-mapstruct/)
 
 
 Dockerizing:
@@ -63,7 +65,8 @@ docker-compose down
 
 try https://www.confluent.io/blog/kafka-listeners-explained/
 try https://stackoverflow.com/questions/66590997/kafka-server-issue-in-docker
-try https://habr.com/ru/articles/529222/
+try https://habr.com/ru/articles/505720/
 try https://stackoverflow.com/questions/61504171/spring-boot-app-refuses-to-connect-to-the-kafka-brokers
 try https://docs.docker.com/compose/compose-file/compose-file-v3/
 try https://www.baeldung.com/kafka-docker-connection
+try https://devapo.io/blog/technology/kafka-in-spring-boot-on-docker/

@@ -16,6 +16,23 @@ services:
     networks:
       - kafka_network
 
+  kafka-producer:
+    container_name: kafka-producer
+    image: kafka-producer
+    build:
+      dockerfile: ./kafka-producer/Dockerfile
+    depends_on:
+      - zookeeper
+      - kafka
+      - kafka-admin
+    ports:
+      - 8081:8081
+    environment:
+#      KAFKA_BROKERCONNECT: localhost:9092
+      - SPRING_KAFKA_BOOTSTRAP_SERVERS=localhost:9092
+    networks:
+      - kafka_network
+
   zookeeper:
     container_name: zookeeper
     image: wurstmeister/zookeeper:latest
