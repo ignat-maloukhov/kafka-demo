@@ -1,18 +1,18 @@
 package demo.ignat.producer.application.service;
 
-import demo.ignat.producer.application.model.ChuckMessage;
+import demo.ignat.producer.application.model.ChuckFact;
 import net.datafaker.Faker;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
-public class ChuckMessagesService implements MessageService<ChuckMessage> {
+public class ChuckMessagesService implements MessageService<ChuckFact> {
 
     private static Faker faker = new Faker();
 
     @Override
-    public ChuckMessage message() {
-        return new ChuckMessage(UUID.randomUUID(), faker.chuckNorris().fact());
+    public ChuckFact message() {
+        return new ChuckFact(UUID.randomUUID(), faker.chuckNorris().fact());
     }
 }

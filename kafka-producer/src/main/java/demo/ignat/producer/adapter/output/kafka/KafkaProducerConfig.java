@@ -1,10 +1,10 @@
 package demo.ignat.producer.adapter.output.kafka;
 
 
-import demo.ignat.producer.adapter.output.dto.ChuckMessageDto;
+import demo.ignat.producer.adapter.output.dto.ChuckMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.IntegerSerializer;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,7 +26,7 @@ public class KafkaProducerConfig {
     private String bootstrapAddress;
 
     @Bean
-    public ProducerFactory<Integer, String> producerFactory() {
+    public ProducerFactory<String, ChuckMessage> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
@@ -36,7 +36,7 @@ public class KafkaProducerConfig {
 
         Map<String, Object> properties = new HashMap<>();
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, IntegerSerializer.class);
+        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
 
         System.out.println("Из свойств=" + properties.get(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG));
@@ -45,8 +45,8 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<Integer, String> kafkaTemplate() {
-        return new KafkaTemplate<Integer, String>(producerFactory());
+    public KafkaTemplate<String, ChuckMessage> kafkaTemplate() {
+        return new KafkaTemplate<String, ChuckMessage>(producerFactory());
     }
 
 

@@ -1,10 +1,10 @@
 package demo.ignat.producer.application.service;
 
-import demo.ignat.producer.application.model.ChuckMessage;
+import demo.ignat.producer.application.model.ChuckFact;
 
-public class ChuckSendMessageService implements SendMessageService<ChuckMessage> {
+public class ChuckSendMessageService implements SendMessageService<ChuckFact> {
     @Override
-    public void send(ChuckMessage message) {
+    public void send(ChuckFact message) {
 
 
     }
