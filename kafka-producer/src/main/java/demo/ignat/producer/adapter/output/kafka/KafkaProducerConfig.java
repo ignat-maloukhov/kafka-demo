@@ -26,7 +26,7 @@ public class KafkaProducerConfig {
     private String bootstrapAddress;
 
     @Bean
-    public ProducerFactory<Integer, ChuckMessageDto> producerFactory() {
+    public ProducerFactory<Integer, String> producerFactory() {
         return new DefaultKafkaProducerFactory<>(producerConfigs());
     }
 
@@ -45,8 +45,8 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public KafkaTemplate<Integer, ChuckMessageDto> kafkaTemplate() {
-        return new KafkaTemplate<Integer, ChuckMessageDto>(producerFactory());
+    public KafkaTemplate<Integer, String> kafkaTemplate() {
+        return new KafkaTemplate<Integer, String>(producerFactory());
     }
 
 

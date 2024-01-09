@@ -27,7 +27,7 @@ public class KafkaDemoScheduler {
     public void sendKafkaMessage() {
         var message = messagesService.message();
         var dto = mapper.map(message);
-        kafkaService.sendKafkaMessage(topicName, dto);
+        kafkaService.sendKafkaMessage(dto);
 
         System.out.println("message=" + message);
         System.out.println("dto=" + dto);
