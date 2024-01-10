@@ -1,4 +1,4 @@
-package demo.ignat.producer.adapter.output.dto;
+package demo.ignat.producer.adapter.output.ChuckMessage;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

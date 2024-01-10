@@ -1,4 +1,4 @@
-package demo.ignat.producer.application.model;
+package demo.ignat.producer.application.core.model;
 
 import java.util.UUID;
 

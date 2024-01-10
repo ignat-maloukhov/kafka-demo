@@ -8,11 +8,10 @@ services:
       dockerfile: ./kafka-admin/Dockerfile
     depends_on:
       - zookeeper
-      - kafka
+      - kafka-1
+      - kafka-2
     ports:
       - 8081:8081
-#    environment:
-#      KAFKA_BROKERCONNECT: localhost:9092
     networks:
       - kafka_network
 
@@ -23,13 +22,11 @@ services:
       dockerfile: ./kafka-producer/Dockerfile
     depends_on:
       - zookeeper
-      - kafka
+      - kafka-1
+      - kafka-2
       - kafka-admin
     ports:
       - 8082:8082
-#    environment:
-#     KAFKA_BROKERCONNECT: localhost:9092
-##      - SPRING_KAFKA_BOOTSTRAP_SERVERS=localhost:9092
     networks:
       - kafka_network
 
@@ -40,14 +37,12 @@ services:
       dockerfile: ./kafka-consumer/Dockerfile
     depends_on:
       - zookeeper
-      - kafka
+      - kafka-1
+      - kafka-2
       - kafka-admin
       - kafka-producer
     ports:
       - 8083:8083
-    #    environment:
-    #     KAFKA_BROKERCONNECT: localhost:9092
-    ##      - SPRING_KAFKA_BOOTSTRAP_SERVERS=localhost:9092
     networks:
       - kafka_network
 
@@ -59,32 +54,35 @@ services:
     networks:
       - kafka_network
 
-  kafka:
-    container_name: kafka
+  kafka-1:
+    container_name: kafka-1
     image: wurstmeister/kafka:latest
     ports:
       - 9092:9092
     depends_on:
       - zookeeper
-#    environment:
-#      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-#      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-#      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
     environment:
+      KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-1:9092
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
-      #KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
-      #KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
-#      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-#      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:19093,OUTSIDE://localhost:9092
-#      KAFKA_LISTENERS: INSIDE://0.0.0.0:19092,OUTSIDE://0.0.0.0:9092
-#      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
-#      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+    networks:
+      - kafka_network
 
-
+  kafka-2:
+    container_name: kafka-2
+    image: wurstmeister/kafka:latest
+    ports:
+      - 9093:9093
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 2
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka-2:9093
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9093
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'false'
     networks:
       - kafka_network
 
@@ -95,11 +93,12 @@ services:
       - 9999:8080
     environment:
       - KAFKA_CLUSTERS_0_NAME=local
-      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092
+      - KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka-1:9092
       - KAFKA_CLUSTERS_0_ZOOKEEPER=zookeeper:2181
     links:
       - zookeeper
-      - kafka
+      - kafka-1
+      - kafka-2
     networks:
       - kafka_network
 

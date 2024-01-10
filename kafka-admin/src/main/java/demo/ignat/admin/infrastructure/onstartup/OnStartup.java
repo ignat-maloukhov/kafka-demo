@@ -1,7 +1,7 @@
 package demo.ignat.admin.infrastructure.onstartup;
 
-import demo.ignat.admin.application.config.KafkaBrokerConfig;
-import demo.ignat.admin.application.config.KafkaTopicConfig;
+import demo.ignat.admin.application.core.config.KafkaBrokerConfig;
+import demo.ignat.admin.application.core.config.KafkaTopicConfig;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

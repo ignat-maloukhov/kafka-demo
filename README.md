@@ -2,15 +2,20 @@ Hi everyone and me in the future :wave: this demo project is grokking [Apache Ka
 
 ### Action plan
 **Step one.** Set up [Gradle](https://gradle.org/) multi-module project according to the instructions in this [article](https://reflectoring.io/spring-boot-gradle-multi-module/) and [documentation](https://docs.gradle.org/current/userguide/multi_project_builds.html).  
-**Step two.** Run [Zookeeper](https://zookeeper.apache.org/) and [Apache Kafka](https://kafka.apache.org/) in [Docker](https://www.docker.com/) according to the instructions in this [article](https://www.baeldung.com/ops/kafka-docker-setup).  
-**Step three.** Create and configure Kafka topic using Spring KafkaAdmin according to the chapter [4.1.2. Configuring Topics](https://docs.spring.io/spring-kafka/docs/latest-ga/reference/html/#configuring-topics) of the documentation, and this [article](https://howtodoinjava.com/kafka/spring-kafka-admin-create-new-topics/). For multi-node Kafka cluster bootstrap-server config explained in this [article](https://www.baeldung.com/java-kafka-bootstrap-server). Pay attention how to use ports into the containers which are described in this [answer](https://stackoverflow.com/questions/72113718/how-to-docker-compose-spring-boot-with-kafka).  
-**Step four.** Code producer and consumer according to the instructions in these articles:  
+**Step two.** Read these brilliant articles about LISTENERS and ADVERTISED_LISTENERS setup:  
+* [Kafka Listeners – Explained](https://www.confluent.io/blog/kafka-listeners-explained/);  
+* [My Python/Java/Spring/Go/Whatever Client Won’t Connect to My Apache Kafka Cluster in Docker/AWS/My Brother’s Laptop. Please Help!](https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/).
+
+**Step three.** Run [Zookeeper](https://zookeeper.apache.org/) and [Apache Kafka](https://kafka.apache.org/) in [Docker](https://www.docker.com/) according to the instructions in this [article](https://www.baeldung.com/ops/kafka-docker-setup) considering the information in step two. Use this [article](https://howtodoinjava.com/kafka/kafka-cluster-setup-using-docker-compose/) for multi-node cluster.    
+**Step four.** Create and configure Kafka topic using Spring KafkaAdmin according to the chapter [4.1.2. Configuring Topics](https://docs.spring.io/spring-kafka/docs/latest-ga/reference/html/#configuring-topics) of the documentation, and this [article](https://howtodoinjava.com/kafka/spring-kafka-admin-create-new-topics/). For multi-node Kafka cluster bootstrap-server config explained in this [article](https://www.baeldung.com/java-kafka-bootstrap-server).  
+**Step five.** Code producer and consumer according to the instructions in these articles:  
+* [Apache Kafka using Spring Boot](https://howtodoinjava.com/spring-boot/apache-kafka-using-spring-boot/);
+* [Using Kafka with Spring Boot](https://reflectoring.io/spring-boot-kafka/). 
 * [Intro to Apache Kafka with Spring](https://www.baeldung.com/spring-kafka);  
 * [Spring Boot and Kafka – Practical Example](https://thepracticaldeveloper.com/spring-boot-kafka-config/);  
-* [Apache Kafka using Spring Boot](https://howtodoinjava.com/spring-boot/apache-kafka-using-spring-boot/);  
-* [Using Kafka with Spring Boot](https://reflectoring.io/spring-boot-kafka/).  
 
-**Step five.** Test using Testcontainers according to the instructions in this [article](https://www.baeldung.com/spring-boot-kafka-testing).  
+**Step six (optional).** In case of an error "The class '{path to the POJO}' is not in the trusted packages:..." use this [solution](https://www.baeldung.com/spring-kafka-trusted-packages-feature).  
+**Step seven (under construction).** Test using Testcontainers according to the instructions in this [article](https://www.baeldung.com/spring-boot-kafka-testing).  
 **Step six.** Run run run :rocket:
 </br>
 </br>
@@ -23,6 +28,7 @@ Youtube tutorials and presentations:
 </br>
 </br>
 Offtopic
+* [Organizing Layers Using Hexagonal Architecture, DDD, and Spring](https://www.baeldung.com/hexagonal-architecture-ddd-spring)
 * [Compose file version 3 reference](https://docs.docker.com/compose/compose-file/compose-file-v3/)  
 * [30 команд Git, необходимых для освоения интерфейса командной строки Git](https://habr.com/ru/companies/ruvds/articles/599929/)  
 * [A Guide to Datafaker](https://www.baeldung.com/java-datafaker)

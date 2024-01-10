@@ -25,24 +25,7 @@ public class KafkaConsumerConfig {
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
 
-    //@Value(value = "${spring.kafka.group-id}")
-    private String groupId = "chuck-norris-group";
-
-
-//    @Bean
-//    public ConsumerFactory<String, ChuckMessage> consumerFactory() {
-////        JsonDeserializer<ChuckMessage> payloadJsonDeserializer = new JsonDeserializer<>();
-////        payloadJsonDeserializer.addTrustedPackages("*");
-//
-//        Map<String, Object> properties = new HashMap<>();
-//        properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-//        properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
-//        properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-//        properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-//        properties.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
-//        return new DefaultKafkaConsumerFactory<>(properties);
-//    }
-
+    private final String groupId = "chuck-norris-group";
 
     @Bean
     public ConsumerFactory<String, ChuckMessage> consumerFactory() {
@@ -51,8 +34,6 @@ public class KafkaConsumerConfig {
         Map<String, Object> properties = new HashMap<>();
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
-        //properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        //properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         properties.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
 
         return new DefaultKafkaConsumerFactory<>(
@@ -61,5 +42,4 @@ public class KafkaConsumerConfig {
                 payloadJsonDeserializer
         );
     }
-
 }

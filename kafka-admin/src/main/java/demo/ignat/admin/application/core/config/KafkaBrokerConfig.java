@@ -1,4 +1,4 @@
-package demo.ignat.admin.application.config;
+package demo.ignat.admin.application.core.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.AdminClientConfig;
@@ -28,11 +28,10 @@ public class KafkaBrokerConfig {
     public KafkaAdmin init() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
-        KafkaAdmin admin = new org.springframework.kafka.core.KafkaAdmin(configs);
+        var admin = new KafkaAdmin(configs);
 
         log.info("KafkaAdmin started");
 
         return admin;
     }
-
 }

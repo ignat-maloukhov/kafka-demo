@@ -1,4 +1,4 @@
-package demo.ignat.admin.application.config;
+package demo.ignat.admin.application.core.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -20,10 +20,9 @@ public class KafkaTopicConfig {
     @Value(value = "${topic.default-topic-name}")
     private String topicName;
 
-    @Value(value = "${topic.partition-count}")
     private int partitionCount;
 
-    @Value(value = "${topic.replica-count}")
+    @Value(value = "${topic.default-replica-count}")
     private int replicaCount;
 
     /**
@@ -34,7 +33,7 @@ public class KafkaTopicConfig {
     @Bean
     public NewTopic defaultTopic() {
         var topic = TopicBuilder.name(topicName)
-                .partitions(partitionCount)
+                .partitions(numberOfCores())
                 .replicas(replicaCount)
                 .compact()
                 .build();
@@ -42,5 +41,16 @@ public class KafkaTopicConfig {
         log.info("Kafka Topic created");
 
         return topic;
+    }
+
+
+    /**
+     * In Kafka the main level of parallelism is number of partitions in a topic.
+     * Method allow to set number of partitions equal number of processor`s cores.
+     *
+     * @return number of processor`s cores
+     */
+    private int numberOfCores() {
+        return Runtime.getRuntime().availableProcessors();
     }
 }
