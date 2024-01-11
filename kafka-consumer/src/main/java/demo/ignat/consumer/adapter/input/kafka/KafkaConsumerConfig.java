@@ -1,6 +1,6 @@
-package demo.ignat.consumer.adapters.input.kafka;
+package demo.ignat.consumer.adapter.input.kafka;
 
-import demo.ignat.consumer.adapters.input.ChuckMessage;
+import demo.ignat.consumer.adapter.input.message.ChuckMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

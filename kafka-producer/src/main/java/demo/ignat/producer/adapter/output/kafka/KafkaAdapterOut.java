@@ -1,9 +1,6 @@
 package demo.ignat.producer.adapter.output.kafka;
 
-import demo.ignat.producer.adapter.output.ChuckMessage.ChuckMessage;
-import demo.ignat.producer.adapter.output.ChuckMessage.mapper.ChuckMapper;
-import demo.ignat.producer.application.core.model.ChuckFact;
-import demo.ignat.producer.application.port.ChuckInstancePortOut;
+import demo.ignat.producer.adapter.output.message.ChuckMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +15,10 @@ import java.util.UUID;
 @PropertySource("classpath:kafka.properties")
 @RequiredArgsConstructor
 @Slf4j
-public class KafkaAdapterOut implements ChuckInstancePortOut {
-
+public class KafkaAdapterOut {
 
     @Autowired
     private KafkaTemplate<String, ChuckMessage> kafkaTemplate;
-
-    private final ChuckMapper mapper;
 
     @Value(value = "${topic.topic-name}")
     private String topicName;
@@ -32,13 +26,10 @@ public class KafkaAdapterOut implements ChuckInstancePortOut {
     /**
      * Send message to Kafka.
      *
-     * @param model - Chuck fact model
+     * @param message - Chuck fact dto
      */
-    public void send(ChuckFact model) {
-
-        //If key is null random topic partitions will use.
-        //This is load balanced strategy.
-        var future = kafkaTemplate.send(topicName, UUID.randomUUID().toString(), mapper.map(model));
+    public void send(ChuckMessage message) {
+        var future = kafkaTemplate.send(topicName, UUID.randomUUID().toString(), message);
 
         future.whenComplete((sendResult, exception) -> {
             if (exception != null) {
@@ -46,8 +37,7 @@ public class KafkaAdapterOut implements ChuckInstancePortOut {
             } else {
                 future.complete(sendResult);
             }
-            log.info("Task status send to Kafka topic : " + mapper.map(model).message());
+            log.info("Task status send to Kafka topic : " + message.message());
         });
     }
-
 }

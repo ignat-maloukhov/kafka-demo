@@ -1,7 +1,7 @@
 package demo.ignat.producer.adapter.output.kafka;
 
 
-import demo.ignat.producer.adapter.output.ChuckMessage.ChuckMessage;
+import demo.ignat.producer.adapter.output.message.ChuckMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
